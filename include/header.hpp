@@ -17,8 +17,6 @@ public:
         for (;;) {
            const std::string end_hash = "0000";
             //случайные взодные данные
-            //u_int *initializer = reinterpret_cast<unsigned int *>(time(NULL));
-            //int curr_hash_rand = rand_r(initializer);
             std::mt19937 gen;
             gen.seed(time(0));
             std::string random = std::to_string(gen());
