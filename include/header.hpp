@@ -7,6 +7,8 @@
 #include <iostream>
 #include <thread>
 #include <stdlib.h>
+#include <random>
+#include <ctime>
 #include <boost/log/trivial.hpp>
 
 class SHA256{
@@ -17,7 +19,10 @@ public:
             //случайные взодные данные
             //u_int *initializer = reinterpret_cast<unsigned int *>(time(NULL));
             //int curr_hash_rand = rand_r(initializer);
-            std::string random = std::to_string(rand());
+            std::mt19937 gen;
+            gen.seed(time(0));
+            std::string random = std::to_string(gen());
+
             //значение хеш-функции
             if (picosha2::hash256_hex_string(random).substr(60) == end_hash) {
                 //сообщения журнала на консоли
