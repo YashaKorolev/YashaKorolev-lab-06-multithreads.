@@ -25,12 +25,13 @@ std::string hash_for_random = picosha2::hash256_hex_string(random);
                 BOOST_LOG_TRIVIAL(info) << "Suitable SHA256(\"" << random
  << "\") = \"" << hash_for_random << "\";"
 << std::endl;} else {
-                random = random + " ";
-                hash_for_random= hash_for_random + " ";
                 BOOST_LOG_TRIVIAL(info) << "Thread ID "
   << std::this_thread::get_id() << "  UNSuitable SHA256(\"" << random
  << ") = \"" << hash_for_random << ";" << std::endl; }
+            random = random + " ";
+            hash_for_random= hash_for_random + " ";
         }
+
     }
 };
 #endif // INCLUDE_HEADER_HPP_
