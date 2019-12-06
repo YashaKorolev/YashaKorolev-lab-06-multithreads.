@@ -17,7 +17,7 @@ public:
             //случайные взодные данные
             u_int *initializer = reinterpret_cast<unsigned int *>(time(NULL));
             int curr_hash_rand = rand_r(initializer);
-            std::string random =std::to_string(curr_hash_rand);
+            std::string random = std::to_string(curr_hash_rand);
             //значение хеш-функции
 std::string hash_for_random = picosha2::hash256_hex_string(random);
 
