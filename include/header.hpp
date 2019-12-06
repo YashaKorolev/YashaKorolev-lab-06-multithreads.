@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <thread>
+#include <stdlib.h>
 #include <boost/log/trivial.hpp>
 
 class SHA256{
@@ -15,9 +16,9 @@ public:
         for (;;) {
             std::string end_hash = "0000";
             //случайные взодные данные
-std::string random = std::to_string(rand());
+std::string random = std::to_string(rand_r());
             //значение хеш-функции
-std::string hash_for_random = picosha2::hash256_hex_string(random);
+const std::string hash_for_random = picosha2::hash256_hex_string(random);
 
             if (hash_for_random.substr(60) == end_hash) {
                 BOOST_LOG_TRIVIAL(info) << "Suitable SHA256(\"" << random
