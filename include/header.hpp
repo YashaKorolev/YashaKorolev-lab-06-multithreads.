@@ -14,15 +14,18 @@ public:
         for (;;) {
             string end_hash = "0000";
             string random = to_string(rand()); //случайные взодные данные
-            string hash_for_random = picosha2::hash256_hex_string(random); //значение хеш-функции
+            //значение хеш-функции
+            string hash_for_random = picosha2::hash256_hex_string(random);
 
             if (hash_for_random.substr(60) == end_hash) {
-                BOOST_LOG_TRIVIAL(info) << "Suitable SHA256(\"" << random << "\") = \"" << hash_for_random << "\";"
-                                        << endl; //сообщения журнала на консоли
+                BOOST_LOG_TRIVIAL(info) << "Suitable SHA256(\"" << random
+                << "\") = \"" << hash_for_random << "\";"
+                << endl; //сообщения журнала на консоли
             }
             else {
-                BOOST_LOG_TRIVIAL(info) << "Thread ID " << this_thread::get_id() << "  UNSuitable SHA256(\"" << random
-                                        << "\") = \"" << hash_for_random << "\";" << endl;
+                BOOST_LOG_TRIVIAL(info) << "Thread ID "
+                << this_thread::get_id() << "  UNSuitable SHA256(\"" << random
+                << "\") = \"" << hash_for_random << "\";" << endl;
             }
         }
     }
