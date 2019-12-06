@@ -16,21 +16,20 @@ public:
         for (;;) {
             std::string end_hash = "0000";
             //случайные взодные данные
-std::string random = std::to_string(rand_r());
+const std::string random = std::to_string(rand());
             //значение хеш-функции
-const std::string hash_for_random = picosha2::hash256_hex_string(random);
+std::string hash_for_random = picosha2::hash256_hex_string(random);
 
             if (hash_for_random.substr(60) == end_hash) {
+                //сообщения журнала на консоли
                 BOOST_LOG_TRIVIAL(info) << "Suitable SHA256(\"" << random
  << "\") = \"" << hash_for_random << "\";"
-<< std::endl; //сообщения журнала на консоли
-            }
-            else {
+<< std::endl;} else {
                 BOOST_LOG_TRIVIAL(info) << "Thread ID "
   << std::this_thread::get_id() << "  UNSuitable SHA256(\"" << random
- << "\") = \"" << hash_for_random << "\";" << std::endl;
-            }
+ << "\") = \"" << hash_for_random << "\";" << std::endl; }
         }
     }
 };
+
 #endif // INCLUDE_HEADER_HPP_
