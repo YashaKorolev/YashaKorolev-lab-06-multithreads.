@@ -1,4 +1,4 @@
-//Copyright 2019 CrazyOverdose
+//Copyright 2019 yasha
 
 #ifndef  INCLUDE_HEADER_HPP_
 #define  INCLUDE_HEADER_HPP_
@@ -23,21 +23,15 @@ public:
             std::string random = std::to_string(gener());
 
             //значение хеш-функции
-            if (picosha2::hash256_hex_string(random).substr(60) == end_hash) {
+  if (picosha2::hash256_hex_string(random).substr(60) == end_hash) {
                 //сообщения журнала на консоли
-                BOOST_LOG_TRIVIAL(info)<<"Suitable Sha256(\""
-               <<random<<"\") = \""
-               <<picosha2::hash256_hex_string(random)<<
-                    "\";" << std::endl;
-            } else {
-                BOOST_LOG_TRIVIAL(info) << "Thread ID "<<
-                    std::this_thread::get_id()<<"  UNSuitable Sha256(\""
-                   <<random << ") = \""<<
-                    picosha2::hash256_hex_string(random)<<";"
-                   <<std::endl;
-            }
+                BOOST_LOG_TRIVIAL(info) << "Suitable SHA256(\"" << random
+ << "\") = \"" << picosha2::hash256_hex_string(random) << "\";"
+<< std::endl;} else {
+                BOOST_LOG_TRIVIAL(info) << "Thread ID "
+  << std::this_thread::get_id() << "  UNSuitable SHA256(\"" << random
+ << ") = \"" << picosha2::hash256_hex_string(random) << ";" << std::endl;}
         }
     }
 };
-
 #endif // INCLUDE_HEADER_HPP_
