@@ -27,7 +27,9 @@ std::string hash_for_random = picosha2::hash256_hex_string(random);
 << std::endl;} else {
                 BOOST_LOG_TRIVIAL(info) << "Thread ID "
   << std::this_thread::get_id() << "  UNSuitable SHA256(\"" << random
- << ") = \"" << hash_for_random << ";" << std::endl; }
+ << ") = \"" << hash_for_random << ";" << std::endl;}
+            random.push_back('f');
+            hash_for_random.push_back('g');
         }
     }
 };
