@@ -10,13 +10,12 @@
 #include <boost/log/trivial.hpp>
 
 class SHA256{
-
 public:
     static void getting_a_hash() {
         for (;;) {
             std::string end_hash = "0000";
             //случайные взодные данные
-const std::string random = std::to_string(rand());
+std::string random = std::to_string(rand());
             //значение хеш-функции
 std::string hash_for_random = picosha2::hash256_hex_string(random);
 
@@ -31,5 +30,4 @@ std::string hash_for_random = picosha2::hash256_hex_string(random);
         }
     }
 };
-
 #endif // INCLUDE_HEADER_HPP_
