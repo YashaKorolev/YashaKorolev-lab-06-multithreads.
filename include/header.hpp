@@ -13,13 +13,13 @@ class SHA256{
 public:
     static void getting_a_hash() {
         for (;;) {
-            std::string end_hash = "0000";
+           static std::string end_hash = "0000";
             //случайные взодные данные
             u_int *initializer = reinterpret_cast<unsigned int *>(time(NULL));
             int curr_hash_rand = rand_r(initializer);
             std::string random = std::to_string(curr_hash_rand);
             //значение хеш-функции
-std::string hash_for_random = picosha2::hash256_hex_string(random);
+static std::string hash_for_random = picosha2::hash256_hex_string(random);
 
             if (hash_for_random.substr(60) == end_hash) {
                 //сообщения журнала на консоли
