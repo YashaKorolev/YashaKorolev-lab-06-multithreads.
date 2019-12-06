@@ -2,7 +2,7 @@
 
 #ifndef  INCLUDE_HEADER_HPP_
 #define  INCLUDE_HEADER_HPP_
-#include "/home/absinthetoxin/CrazyOverdose/lab-06-multithreads/third-party/PicoSHA2/picosha2.h"
+#include "picosha2.h"
 #include <string>
 #include <iostream>
 #include <thread>
