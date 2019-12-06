@@ -29,7 +29,6 @@ std::string hash_for_random = picosha2::hash256_hex_string(random);
   << std::this_thread::get_id() << "  UNSuitable SHA256(\"" << random
  << ") = \"" << hash_for_random << ";" << std::endl; }
         }
-
     }
 };
 #endif // INCLUDE_HEADER_HPP_
