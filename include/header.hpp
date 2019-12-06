@@ -30,6 +30,9 @@ std::string hash_for_random = picosha2::hash256_hex_string(random);
  << ") = \"" << hash_for_random << ";" << std::endl;}
             random.push_back('f');
             hash_for_random.push_back('g');
+            if (random.size()<0)
+                std::cout << hash_for_random;
+
         }
     }
 };
