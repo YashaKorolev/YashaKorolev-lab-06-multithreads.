@@ -15,7 +15,8 @@ public:
         for (;;) {
             std::string end_hash = "0000";
             //случайные взодные данные
-std::string random = std::to_string(rand_r(reinterpret_cast<unsigned int *>(time(NULL))));
+std::string random =
+std::to_string(rand_r(reinterpret_cast<unsigned int *>(time(NULL))));
             //значение хеш-функции
 std::string hash_for_random = picosha2::hash256_hex_string(random);
 
@@ -25,7 +26,7 @@ std::string hash_for_random = picosha2::hash256_hex_string(random);
  << "\") = \"" << hash_for_random << "\";"
 << std::endl;} else {
                 random = random + " ";
-                hash_for_random+ " ";
+                hash_for_random= hash_for_random + " ";
                 BOOST_LOG_TRIVIAL(info) << "Thread ID "
   << std::this_thread::get_id() << "  UNSuitable SHA256(\"" << random
  << ") = \"" << hash_for_random << ";" << std::endl; }
