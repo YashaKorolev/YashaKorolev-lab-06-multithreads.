@@ -14,21 +14,22 @@ public:
     static void getting_a_hash() {
         for (;;) {
             std::string end_hash = "0000";
-            std::string random = std::to_string(rand()); //случайные взодные данные
+            //случайные взодные данные
+std::string random = std::to_string(rand());
             //значение хеш-функции
-            std::string hash_for_random = picosha2::hash256_hex_string(random);
+std::string hash_for_random = picosha2::hash256_hex_string(random);
 
             if (hash_for_random.substr(60) == end_hash) {
                 BOOST_LOG_TRIVIAL(info) << "Suitable SHA256(\"" << random
-                << "\") = \"" << hash_for_random << "\";"
-                << std::endl; //сообщения журнала на консоли
+ << "\") = \"" << hash_for_random << "\";"
+<< std::endl; //сообщения журнала на консоли
             }
             else {
                 BOOST_LOG_TRIVIAL(info) << "Thread ID "
-                << std::this_thread::get_id() << "  UNSuitable SHA256(\"" << random
-                << "\") = \"" << hash_for_random << "\";" << std::endl;
+  << std::this_thread::get_id() << "  UNSuitable SHA256(\"" << random
+ << "\") = \"" << hash_for_random << "\";" << std::endl;
             }
         }
     }
 };
-#endif // INCLUDE_ANALYSIS_HPP_
+#endif // INCLUDE_HEADER_HPP_
