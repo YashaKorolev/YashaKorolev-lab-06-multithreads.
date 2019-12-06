@@ -18,9 +18,9 @@ int main(int argc, char*argv[]) {
         count_threads = boost::lexical_cast<size_t>(argv[1]); //преобразование в size_t
 
     boost::log::add_file_log("Log.log"); //вывод в файл
-    boost::log::add_console_log(cout); //вывод в консоль
+    boost::log::add_console_log(std::cout); //вывод в консоль
 
-    vector<thread> threads;
+    std::vector<std::thread> threads;
     for (size_t i = 0; i < count_threads; ++i)
     threads.emplace_back(SHA256::getting_a_hash); //создает объект (а не копию) в конце вектора
 
