@@ -2,7 +2,7 @@
 
 #ifndef  INCLUDE_HEADER_HPP_
 #define  INCLUDE_HEADER_HPP_
-#include <picosha2.hpp>
+#include "picosha2.hpp"
 #include <string>
 #include <iostream>
 #include <thread>
