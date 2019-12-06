@@ -2,7 +2,8 @@
 set -e
 
 files=`find . -name "sourse.cpp" -or -name "header.hpp" -or -name ".h" | grep -v "./tools/*"`
-filter=-build/c++11,-runtime/references,-whitespace/braces,-whitespace/indent,-whitespace/comments,-build/include_order
+# shellcheck disable=SC2037
+filter=-build/c++11, -whitespace/braces,-whitespace/indent,-whitespace/comments,-build/include_order
 echo $files | xargs cpplint --filter=$filter
 
 export CTEST_OUTPUT_ON_FAILURE=true
