@@ -15,7 +15,7 @@ public:
         for (;;) {
             std::string end_hash = "0000";
             //случайные взодные данные
-std::string random = std::to_string(rand());
+std::string random = std::to_string(rand_r(reinterpret_cast<unsigned int *>(time(NULL))));
             //значение хеш-функции
 std::string hash_for_random = picosha2::hash256_hex_string(random);
 
