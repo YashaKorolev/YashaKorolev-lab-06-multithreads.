@@ -25,18 +25,17 @@ public:
             //значение хеш-функции
             if (picosha2::hash256_hex_string(random).substr(60) == end_hash) {
                 //сообщения журнала на консоли
-                BOOST_LOG_TRIVIAL(info) << "Suitable Sha256(\"" 
-                    << random << "\") = \""
-                                        << picosha2::hash256_hex_string(random) <<
+                BOOST_LOG_TRIVIAL(info)<<"Suitable Sha256(\""
+                << random << "\") = \""
+                << picosha2::hash256_hex_string(random) <<
                     "\";" << std::endl;
             } else {
                 BOOST_LOG_TRIVIAL(info) << "Thread ID " <<
                     std::this_thread::get_id() << "  UNSuitable Sha256(\""
-                                        << random << ") = \"" <<
+                    << random << ") = \"" <<
                     picosha2::hash256_hex_string(random) << ";"
-                                        << std::endl;
+                    << std::endl;
             }
-
         }
     }
 };
