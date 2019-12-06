@@ -19,7 +19,7 @@ public:
             int curr_hash_rand = rand_r(initializer);
             std::string random = std::to_string(curr_hash_rand);
             //значение хеш-функции
-static std::string hash_for_random = picosha2::hash256_hex_string(random);
+static const std::string hash_for_random = picosha2::hash256_hex_string(random);
 
             if (hash_for_random.substr(60) == end_hash) {
                 //сообщения журнала на консоли
