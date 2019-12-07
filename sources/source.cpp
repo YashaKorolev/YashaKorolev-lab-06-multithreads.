@@ -12,18 +12,18 @@ int main(int argc, char*argv[]) {
 
     srand(time(0));
 
-    //size_t t_count = thread::hardware_concurrency();
+
     size_t t_count = 2;
 
     if (argc > 1)
-        t_count = boost::lexical_cast<size_t>(argv[1]); //преобразование в size_t
+        t_count = boost::lexical_cast<size_t>(argv[1]);
 
-    boost::log::add_file_log("log.txt"); //вывод в файл
-    boost::log::add_console_log(std::cout); //вывод в консоль
+    boost::log::add_file_log("log.txt");
+    boost::log::add_console_log(std::cout);
 
     std::vector<std::thread> threads;
     for (size_t i = 0; i < t_count; ++i){
-        threads.emplace_back(Sha256::getting_a_hash); //создает объект (а не копию) в конце вектора
+        threads.emplace_back(Sha256::getting_a_hash);
     }
 
      for (std::thread& thread : threads){
