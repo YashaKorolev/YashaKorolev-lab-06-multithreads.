@@ -13,7 +13,7 @@ int main(int argc, char*argv[]) {
     srand(time(0));
 
 
-    size_t t_count = 2;
+    size_t t_count = std::thread::hardware_concurrency();
 
     if (argc > 1)
         t_count = boost::lexical_cast<size_t>(argv[1]);
