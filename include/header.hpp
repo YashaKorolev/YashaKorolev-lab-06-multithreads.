@@ -24,11 +24,10 @@ public:
 
 
   if (picosha2::hash256_hex_string(random).substr(60) == end_hash) {
-
                 BOOST_LOG_TRIVIAL(info) << "Suitable SHA256(\"" << random
  << "\") = \"" << picosha2::hash256_hex_string(random) << "\";"
 << std::endl;} else {
-                BOOST_LOG_TRIVIAL(info) << "Thread ID "
+                BOOST_LOG_TRIVIAL(trace) << "Thread ID "
   << std::this_thread::get_id() << "  UNSuitable SHA256(\"" << random
  << ") = \"" << picosha2::hash256_hex_string(random) << ";" << std::endl;}
         }
